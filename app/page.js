@@ -494,10 +494,10 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="relative z-10 py-20 px-6 bg-gray-900/50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-cyan-400 mb-8 glow-text">Let's Work Together</h2>
+          <h2 className="text-4xl font-bold text-cyan-400 mb-8 glow-text">Let&apos;s Work Together</h2>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and exciting projects. 
-            Feel free to reach out if you'd like to collaborate!
+            I&apos;m always interested in new opportunities and exciting projects. 
+            Feel free to reach out if you&apos;d like to collaborate!
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">

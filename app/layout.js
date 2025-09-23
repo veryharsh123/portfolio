@@ -13,7 +13,7 @@ const openSans = Open_Sans({
 
 export const metadata = {
   title: "Harsh's Portfolio",
-  description: "Welcome to Harsh's Portfolio - Showcasing My Projects and Skills",
+  description: "Welcome to Harshs Portfolio - Showcasing My Projects and Skills",
 }
 
 export default function RootLayout({ children }) {
