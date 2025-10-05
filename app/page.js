@@ -1,9 +1,9 @@
-"use client";
-// Add this component at the top of your file, after the imports
+"use client"
 const TypewriterText = ({ text, delay = 0, speed = 100 }) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
     if (currentIndex < text.length) {
@@ -11,27 +11,44 @@ const TypewriterText = ({ text, delay = 0, speed = 100 }) => {
         setDisplayText(text.slice(0, currentIndex + 1));
         setCurrentIndex(currentIndex + 1);
       }, currentIndex === 0 ? delay : speed);
-
       return () => clearTimeout(timer);
+    } else {
+      setIsFinished(true); // typing done
     }
   }, [currentIndex, text, delay, speed]);
 
-  // Cursor blinking effect
+  // Cursor blinking effect (only when typing)
   useEffect(() => {
+    {!isFinished && (<span
+      className={`transition-opacity duration-700 ${
+        isFinished ? 'opacity-0' : showCursor ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      |
+    </span>)}// stop blinking when done
+
     const cursorTimer = setInterval(() => {
       setShowCursor(prev => !prev);
     }, 500);
 
     return () => clearInterval(cursorTimer);
-  }, []);
+  }, [isFinished]);
 
   return (
     <span>
       {displayText}
-      <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+      {!isFinished && (
+        <span
+          className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}
+        >
+          |
+        </span>
+      )}
     </span>
   );
 };
+
+
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Code, Database, Cloud, FileText, ChevronDown, Menu, X, Calendar } from 'lucide-react';
 
