@@ -212,21 +212,6 @@ export default function Portfolio() {
       status: 'live',
       category: 'E-commerce',
       type: 'Freelance Project'
-    },
-    {
-      name: 'iChat',
-      tech: ['Express.js', 'Node.js', 'Socket.io', 'WebSockets'],
-      period: 'Oct 2023',
-      description: 'Real-time chat application built with WebSockets, featuring instant messaging, user authentication, and message routing.',
-      achievements: [
-        'Developed real-time messaging system using Socket.io and WebSockets',
-        'Implemented user authentication and secure message routing',
-        'Reduced message latency by 40% through optimized backend architecture',
-        'Built scalable Express.js backend handling multiple concurrent users'
-      ],
-      status: 'completed',
-      category: 'Real-time App',
-      type: 'Personal Project'
     }
   ];
 
@@ -344,25 +329,32 @@ export default function Portfolio() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-rows-3 gap-6">
-            <StaggerContainer staggerDelay={0.2}>
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
-                <Code className="w-12 h-12 text-blue-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Frontend</h3>
-                <p className="text-gray-600">React, Next.js, TypeScript, Tailwind CSS</p>
-              </div>
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
-                <Database className="w-12 h-12 text-green-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Backend</h3>
-                <p className="text-gray-600">Node.js, Express.js, Prisma, MySQL</p>
-              </div>
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
-                <Cloud className="w-12 h-12 text-purple-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Cloud</h3>
-                <p className="text-gray-600">AWS, Firebase, Docker, CI/CD</p>
-              </div>
-            </StaggerContainer>
-          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+  <FadeIn delay={0.2}>
+    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
+      <Code className="w-12 h-12 text-blue-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">Frontend</h3>
+      <p className="text-gray-600">React, Next.js, TypeScript, Tailwind CSS</p>
+    </div>
+  </FadeIn>
+  
+  <FadeIn delay={0.3}>
+    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
+      <Database className="w-12 h-12 text-green-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">Backend</h3>
+      <p className="text-gray-600">Node.js, Express.js, Prisma, MySQL</p>
+    </div>
+  </FadeIn>
+  
+  <FadeIn delay={0.4}>
+    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
+      <Cloud className="w-12 h-12 text-purple-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">Cloud</h3>
+      <p className="text-gray-600">AWS, Firebase, Docker, CI/CD</p>
+    </div>
+  </FadeIn>
+</div>
+
         </div>
       </section>
 
@@ -372,22 +364,47 @@ export default function Portfolio() {
           <FadeIn delay={0.1}>
             <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">About Me</h2>
           </FadeIn>
+
           
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-8">
-              <FadeIn delay={0.2} direction="left">
-                <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-2xl font-semibold text-blue-600 mb-4">Education</h3>
-                  <div className="space-y-2">
-                    <h4 className="text-gray-900 font-semibold">Bachelor of Technology in Computer Science</h4>
-                    <p className="text-gray-700">Ajay Kumar Garg Engineering College, Delhi NCR</p>
-                    <p className="text-gray-500 flex items-center">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      Jul 2020 – Jul 2024
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
+            <FadeIn delay={0.2} direction="left">
+  <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+    <h3 className="text-2xl font-semibold text-blue-600 mb-6">Education</h3>
+
+    <div className="space-y-6">
+      <div>
+        <h4 className="text-gray-900 font-semibold">
+          Master of Science in Computer Science
+        </h4>
+        <p className="text-gray-700">
+          Johns Hopkins University, Baltimore, USA
+        </p>
+        <p className="text-gray-500 flex items-center">
+          <Calendar className="w-4 h-4 mr-2" />
+          January 2026 – Present
+        </p>
+      </div>
+
+      <hr className="border-gray-200" />
+
+      <div>
+        <h4 className="text-gray-900 font-semibold">
+          Bachelor of Technology in Computer Science
+        </h4>
+        <p className="text-gray-700">
+          Dr A.P.J Abdul Kalam Technical University, Delhi NCR
+        </p>
+        <p className="text-gray-500 flex items-center">
+          <Calendar className="w-4 h-4 mr-2" />
+          Jul 2020 – Jul 2024
+        </p>
+      </div>
+    </div>
+  </div>
+</FadeIn>
+
+              
               
               <FadeIn delay={0.3} direction="left">
                 <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
