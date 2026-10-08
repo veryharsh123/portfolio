@@ -1,10 +1,7 @@
 import Image from "next/image";
 import ContributionGraph from "./ContributionGraph";
 import Lamp from "./Lamp";
-
-const EMAIL = "harshahuja1179@gmail.com";
-const GITHUB = "https://github.com/veryharsh123";
-const LINKEDIN = "https://linkedin.com/in/veryharsh";
+import { EMAIL, GITHUB, LINKEDIN } from "@/lib/contact";
 
 // Real commit subjects from the Coloc repo, lightly reworded for people who
 // have never seen the codebase.
