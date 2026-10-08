@@ -25,9 +25,16 @@ export const viewport: Viewport = {
   themeColor: "#f3f4f6",
 };
 
+// Runs before first paint so the page never flashes the wrong theme: the
+// visitor's last choice from the lamp, else their system setting.
+const themeScript = `try{var t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className={grotesk.className}>{children}</body>
     </html>
   );

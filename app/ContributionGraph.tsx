@@ -20,26 +20,34 @@ export default async function ContributionGraph() {
 
   return (
     <figure className="graph">
-      <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`${total} GitHub contributions in the last year`}>
-        {days.map((d, i) => {
-          const week = Math.floor((i + offset) / 7);
-          return (
-            <rect
-              key={d.date}
-              className={`cell l${d.level}`}
-              x={week * STEP}
-              y={((i + offset) % 7) * STEP}
-              width={CELL}
-              height={CELL}
-              rx={2}
-              style={{ animationDelay: `${(week / weeks) * 700}ms` }}
-            >
-              {/* One string: React 19 rejects a <title> made of several text nodes. */}
-              <title>{`${d.count === 0 ? "No" : d.count} contribution${d.count === 1 ? "" : "s"} on ${formatDate(d.date)}`}</title>
-            </rect>
-          );
-        })}
-      </svg>
+      {/* On phones the squares keep their full size and this scrolls sideways instead. */}
+      <div className="graph-scroll">
+        <svg
+          viewBox={`0 0 ${width} ${height}`}
+          style={{ "--w": width } as React.CSSProperties}
+          role="img"
+          aria-label={`${total} GitHub contributions in the last year`}
+        >
+          {days.map((d, i) => {
+            const week = Math.floor((i + offset) / 7);
+            return (
+              <rect
+                key={d.date}
+                className={`cell l${d.level}`}
+                x={week * STEP}
+                y={((i + offset) % 7) * STEP}
+                width={CELL}
+                height={CELL}
+                rx={2}
+                style={{ animationDelay: `${(week / weeks) * 700}ms` }}
+              >
+                {/* One string: React 19 rejects a <title> made of several text nodes. */}
+                <title>{`${d.count === 0 ? "No" : d.count} contribution${d.count === 1 ? "" : "s"} on ${formatDate(d.date)}`}</title>
+              </rect>
+            );
+          })}
+        </svg>
+      </div>
       <figcaption>
         <a href={`https://github.com/${GITHUB_USER}`}>{total} contributions on GitHub in the last year</a>
         <span className="legend" aria-hidden="true">

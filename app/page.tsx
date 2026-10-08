@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContributionGraph from "./ContributionGraph";
+import Lamp from "./Lamp";
 
 const EMAIL = "harshahuja1179@gmail.com";
 const GITHUB = "https://github.com/veryharsh123";
@@ -112,6 +113,7 @@ export default function Home() {
           <a href={GITHUB}>GitHub</a>
           <a href={LINKEDIN}>LinkedIn</a>
         </nav>
+        <Lamp />
       </header>
 
       <main>
